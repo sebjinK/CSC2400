@@ -1,0 +1,43 @@
+Analysis of algorithms - 
+an investigation of an algorithm's efficiency with respect to two resources: running time and memory space
+
+Time Efficienct (time complexity) - how fast a program runs
+
+Space efficiency (space complexity) - refers to the amnt of memory units required by the algorithm 
+                                        in the addition to the space needed for its input and output
+
+Question: What is the size of two matrices (size m + size n) multiplied together
+
+- n is our algorithm's input size
+
+ex - 
+- if sorting, searching, finding smallest elemnts, n is the number of elements
+- if evaluating a polynomial (p(x) = am*x^m+....+an) n can be the degree or the number of coefficients
+
+
+Measuring an Input's size coefficients
+
+b (bits) = L log2n _|(floor funciton) + 1
+floor function drops the integer 
+to the real number below it.
+
+log2()  < log2(24) < log2()
+
+loga(b) = c
+a^c = b
+
+loge(e) = 1
+
+2^4 = 16    2^3 = 8     2^2 = 4     2^1 = 2     2^0 = 1
+1               1           0           0       0
+11000 = 24 in binary
+
+Units for Measuring Rynning time
+What are the drawbacks of using some standard unit of 
+time measurement like a second?
+- Dependence on the speed of a particular computer
+- " on the quality of implementation
+- " on the compiler used in generating the machine code
+- Difficulty of clocking the actual running time of the program
+
+

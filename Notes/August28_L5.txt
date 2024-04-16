@@ -1,0 +1,8 @@
+Let's assume that the 
+- p dentoes the probability of a successful search (1-p = probability of unsuccessful search)
+- The probability of the first match occuring in the ith position of the list is the same for every i 
+
+in the case of a successful search, the probabiliity of the first match occuring in the ith position of the list for every i, and the number of comparisons made by the algo is i.
+
+Cavg(n) = [1 * (p/n) + 2 * (p/n) + .... + i * (p/n) + 1] n(1-p) = 
+= (p(n+1))/2 + n-np

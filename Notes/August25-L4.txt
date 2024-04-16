@@ -1,0 +1,46 @@
+We should make a special note about measuring input size for algorithms solving problems such as chekcing primality of a positive integer n. Here it is this number's magnitude that dtermines the input size.  
+In such situations, it is preferrable to measure size by the number b of bits in the n's binary represntation
+
+b = L log2(n) _| + 1
+
+
+What are the drawbacks of using some standard unit of measurement like a second?
+- Dependence on the speed of a particular computer
+- " on the quality of implementation
+- " on the compiler used in generating the machine code
+
+
+
+Orders of Growth
+- For large values of n, it is the function's order of growth that counts (counts towards what??)
+
+
+For each of the following algorithms, indicate
+1. a natural metric for its inputs
+2. its basic operation
+3. whether the basic operation count can be diffrent for inputs of hte same size //(size means magnitude in this case) (same size?? - maybe meaning same number of digits??)
+
+A) computing the sum of n numbers
+1. n 
+2. addition
+3. no
+
+B) computing n! 86 vs 96
+1. magnitude of n
+2. multiplying by itself
+3. yes - factorial changes based on the size of hte numbers, not magnitude
+
+c) finding the largest element in a list of n numbers
+1. n 
+2. comparison
+3. no
+
+D) Euclid's Algorithim
+1. magnitude of max(m, n)
+2. modulo division
+3. yes
+
+E)  pen and pencil algorithms for multiplying the n-digit decimal integers 
+1. n
+2. multiplying digits
+3. no - O(n^2) U O(n) U O(n^3)

@@ -1,0 +1,5 @@
+Theorem: The convex hull of any set S of n > 2 points not all on the same line is a convex polygon with the verticesat some of the points of S 
+
+
+Extreme Points - 
+a point which is not is not a middle point---all the points that are on the edge of the convex hull 

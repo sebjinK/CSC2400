@@ -1,0 +1,99 @@
+Algorithm BubbleSort A[0...n-1]
+//sorts a given array by bubble sort
+//input:    Array A[0...n-1] of orderable elements
+//output:   Array A[0...n-1] sorted in nondecreasing order
+
+for (int i = 0; i < n-2; i++)
+    for (int j = 0; j < n-2-i; j++)
+    if(A[j]>A[j+1])
+        swap A[]
+
+Algorithm Sequential Seqrch (A[0...n], K)
+//implements sequential search with a search key as a sentinel 
+//input:    An array A 
+
+
+
+3.2 Sequential Search + Brute force string Matching (cont.)
+Brute - Force STring Matching
+Given a cstring of n characters called the text and a string 
+of m characters (m < n) called the pattern, find a substring of the text that matches the pattern
+
+Algorithm Brute Force String Match (T[0...n-1], P[0...m-1])
+//Implements brute force string Matching
+//Input:        Array T[0...n-1] of n characters repping a text and 
+                an array P[0...m-1] of m characters repping a pattern
+//Output:       The index of the first character in the etxt that starts 
+                a matching substring or -1 if the search is unsuccessful
+
+for (int i = 0; i < n - m; i++)
+{
+    int j = 0;
+    while (j < m && P[j] = T[i + j])
+    {
+        j += 1
+    }
+    if (j == m)
+        return i;
+}
+return -1;
+
+Best case (m, n) within BIGTHETA(m)
+
+AAAAAA
+AA 
+
+worst case example (NOT):
+A A A A A A A A 
+B B 
+  B B 
+    B B 
+      B B 
+        B B 
+          B B 
+            B B 
+REAL worst case example:
+A A A A A A A A A 
+A A A B 
+  A A A B 
+    A A A B 
+      A A A B 
+        A A A B 
+          A A A B 
+it will happen for all (n - m + 1) tries
+the algorithm makes m(n - m + 1) character 
+comparisons which puts it in O(nm) class
+
+
+
+3.3 Closest-Pair and Convex-Hall Problems by Brute Force 
+Two well known problems dealing with a fininte set of points in the plane.
+
+Closest-Pair Problem:   Find the two closest points in a set of n points 
+
+The distance between two points pi(xi, yi) and pj(xj, yj) is the standard euclidean distance 
+d(pi, pj) = sqrt((xi - xj)^2 + (yi - yj)^2)
+We consider only thep airs of points (pi, pj) for which i < j
+
+Algorithm BruteforceClosestPair(p)
+//Finds distance between two sloest points in the plane by brute force 
+//Input:    A list P of n (n >= 2) points pi(x1, y1), ...., pi(xi, yi)
+//output:   The distance between the closest pair of points 
+d = inf
+for (int i = 1; i <= n-1; i++)
+    for (int j = i + 1; j < n; j++)
+        d = min(d, sqrt((Change in X)^2 - (change in Y)^2));
+return d;
+
+sqrt is not exactly required due to the functions increasing for every operation
+but we can use this function as an approximation
+change in X is always increasing and change in y is also always increasing 
+so taking the square root of the whole function of (change of x)^2 to (change of y)^2 wouldn't change the boolean solution
+which is basically asking if d > (change of x)^2 - (change of y)^2
+The squares are actually necessary because of how x and y change the angle of the distance
+is increased 
+
+
+The convex Hull problem of a set S of points is the smallest convex set 
+containing S. (the "smallest" requirement eanst hat the convex hull of S must be a subset of any
+                convex set containing S)

@@ -1,0 +1,181 @@
+////////////exercises 4.3 - pg 148////////
+2. 	find all permutations of {1, 2 ,3, 4}
+	a. 	using bottom-up minimal change algorithm
+		1
+		
+		12		21
+		
+		123		132
+		213		231
+		312		321
+		
+		1234	1324	1423
+		1243	1342	1432
+		2134	2314	2413
+		2143	2341	2431
+		3124	3214	3421
+		3142	3241	3412
+		4123	4213	4312
+		4132	4231	4321
+		
+	b. 	using the Johnson-Trotter algorithm
+		1234	1243	1423	4123
+		4132	1432	1342	1324
+		3124	3142	3412	4312
+		4321	3421	3241	3214
+		2314	2341	2431	4231
+		4213	2413	2143	2134
+		
+	c. 	using the lexicographic-order algorithm
+		1234	1243	
+		1324	1342
+		1423	1432	
+		2134	2143
+		2314	2341	
+		2413	2413
+		3124	3142	
+		3412	3421
+		3214	3241	
+		4123	4132	
+		4213	4231
+		4312	4321
+
+///////////exercises 4.4 - pgs 156-157/////////
+3.
+	a. 	largest number of key comparisons made by binary serach in searching for 
+		for a key in the following array:
+		{3, 14, 27, 31, 39, 42, 55, 70, 74, 81, 85, 93, 98}
+		4
+
+	b. 	List all keys of this array that will require the largest number of key
+		comparisons when serached for by binary search 
+		14, 31, 42, 70, 81, 93
+	
+	c. 	Find the avg num of key comparisons made by binary search in a successful
+		search in this array. Assume each key is searched for with the same probability
+        log2(13) = 5
+    
+	d. 	Find the avg num of key comparisons made by binary search in a successful
+		search in this array. Assume searches for keys in each of the 14 intervals formed 
+		by the array's elements are equally likely
+        1
+
+8. 	consider ternary search - the following algorithm for seraching in a sorted array from least to greatest
+	A[0...n-1]:
+	if (n == 1)
+	{
+		compare search key K with the single element within the array;
+	}
+	else
+	{
+		if (search key K > A[floor(n/3)])
+		{
+			if (K > A[floor(2n/3)])
+				do search in last third of the array using recursive_func_call(K, last third)
+			else
+				do search in second third of the array using recursive_func_call(K, second third)
+		}
+		else
+		{
+			do search in the first third of the array using recursive_func_call(K, first third)
+		}
+	}
+	
+	a. 	What design technique is this algorithm based on?
+        decrease by a constant factor algorithm
+	b. 	Set up a recurrence relation for the number of key comparisons in the worst case.
+		You may assume n = 3^k 
+        T(n) = T(n/3) + 1;
+	c. 	Solve the recurrence relation for n = 3^k\
+        theta(log(n));
+	d. 	Compare this algorithm's efficiency against binary search
+        This algorithm's efficiency compared to binary search is the same considering that both have an efficiency level of n(log(n))
+        The time complexity of ternary search is O(log(n)) while the time complexity of binary search is O(log(n)). They both have similar time efficiencies 
+        but binary search is faster based on the fact that it searches through each half of the list and doesn't include an extra step.
+///////////exercises 4.5 - pg 166////////
+2. 	Apply quickselect to find the median of the list of numbers:
+		
+	{9, 12, 5, 17, 20, 30, 8}
+    {9, 5, 12, 17, 20, 30, 8}
+    {9, 5, 8, 17, 20, 30, 12}
+    {17, 20, 30, 8}
+    {17, 8, 30, 20}
+    {8, 17, 30, 20}
+    median = 8;
+
+//////////exercises 5.1 - pg 175////////
+
+6.   E X A M P L E  sorted by mergesort
+E X A M  P L E 
+E X  A M  P L  E 
+E  X  A  M  P  L  E 
+X E  A M  L P  E 
+A E M X  E L P 
+A E E L M P X
+
+//////////exercises 5.2 - pg 181-192
+1.  E X A M P L E  sorted by quicksort
+    p = 'E'; 
+    l = A, E, E, L 
+    r = X, M, P 
+
+    right subarray 1
+    pivot = M
+    l = M, P 
+    r = X
+
+    right subarray 1-1
+    pivot = M, P
+    l = M, p 
+    r = M, p
+
+    right subarray 1-2
+    pivot = X
+    l = r = X 
+
+    left subarray 1
+    pivot = A 
+    l is empty
+    r = E, E, L 
+
+    left subarray 1-1
+    pivot = E 
+    l is empty 
+    r = E, L 
+
+    left subarray 1-1-1
+    pivot = E 
+    l is empty 
+    r = L 
+
+    combine left subarray 1 with left subarray 1-1
+    A, E, E, L 
+
+    add right subarray 1-1
+    A, E, E, L, M, P 
+
+    add right subarray 1-2
+    A, E, E, L, M, P, X
+
+
+
+9a. The dutch national flag problem is to rearrange an array of characters R, W, B (red, white, blue) so that all the R's come first, W's come second, B's come last
+    Design a linear in place algorithm for this problem 
+
+    iterate through the inserted array (A[0...n-1])
+    if (A[i] == 'R')
+    {
+        insert A[i] at 0;
+        /*
+            do this by shifting the array forward 1
+            delete the position where you found 'R'
+        */
+    }
+    if (A[i] == 'B')
+    {
+        insert A[i] at n-1;
+        /*
+            do this by shifting the arrray backward 1
+            delete the position where you found 'B'
+        */
+    }

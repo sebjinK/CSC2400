@@ -1,0 +1,72 @@
+
+// Lesson 2 HW // 
+Question 5 - 
+Goal: 
+Find max number of comparisons the Algorithim makes when given two lists are m and n 
+
+
+//Compares two sorted lists of numbers and finds the common numbers between them 
+//Input: two lists of non-zero integers of size m and n respectively sorted least to Greatest
+//Output: a list containing all common elements in both lists
+												1 --> 2 -->
+												2--> 2--> 3--> 4 -->
+Step 1 - Take the first list of size m and make a linked list 
+         that will hold each integer within the first list
+Step 2 - Put the second list into another linked list 
+Step 3 - Compare the first integer for list size m against list
+         size n's integers
+Step 4 - If you find a match stop checking, move the match to output array and move on to step 5. //this makes the list smaller for faster efficiency when making comparisons
+                                                                                		  //also doesn't confuse the Algorithim as an already matched number isn't being compared 												  again 
+         If no match is found then move back to step 3 with the next integer from one or the other. 
+Step 5 - Delete the matching elements from both lists. Repeat step 3 and beyond
+         until one or both of the lists are either exhausted of their elements
+         or have both been fully traversed once without finding any matches
+
+The maximum number of comparisons each list is based on the idea there is no matching numbers between lists
+therefore since every element of the two lists are being compared against each other
+the maximum number of comparisons is m * n.
+
+Question 6a - 
+gcd(31415, 14142) = gcd(14142, (31415 % 14142 = 3131))
+gcd(14142, 3131) = gcd(3131, (14142 % 3131 = 1618))
+gcd(3131, 1618) = gcd(1618, (3131 % 1618 = 1513))
+gcd(1618, 1513) = gcd(1513, (1618 % 1513 = 105))
+gcd(1513, 105) = gcd(105, (1513 % 105 = 43))
+gcd(105, 43) = gcd(43, (105 % 43 = 9))
+gcd(9, 7) = gcd(7, (9 % 7 = 2))
+gcd(7, 2) = gcd(2, (7 % 2 = 1))
+gcd(2, 1) = gcd(1, (2 % 1 = 0))
+gcd(1, 0) = 1
+
+Question 8 - 
+When the first number is smaller than the second, it causes the algorithm to 
+basically go once, repeat the exact same pair of integers but flipped. Euclid's
+algorithm then starts as usual. This can only happen once due to how modulo works
+
+
+// Lesson 4 HW // 
+
+Question 8
+a. log2(n) -> log2(4n) - the process leads to the log 2 reducing the 4 down to 2log2(n). Function is doubled;
+b. sqrt(n) -> sqrt(4n) - the 4 would be reduced by the square root and the result is 2sqrt(n). Funciton is doubled;
+c. n -> 4n - the function is multiplied fourfold;
+d. n^2 -> (4n)^2 - 16n^2 - the function is squared so its multipled sixteenfold;
+e. n^3 -> (4n)^3 - 64n^2 - the function is cubed so its multiplied sixty-fourfold;
+f. 2^n -> 2^(4n) - 16^n - the base is raised to the 4th power.
+
+Question 9
+a. n(n + 1) <= 2000n^2
+b. 100n^2 >= 0.01n^3 //n^3 will always have a higher order of growth compared to n^2
+c. log2(n) >= ln(n) //2 is a smaller base than e and will therefore have a higher order of growth
+d. (log2(n))^2 >= log2(n)^2 //log2(n)^2 = 2log2(n) >= (log2(n))^2
+e. 2^(n-1) <= 2^n
+f. (n-1)! <= n!
+
+// Lesson 5 HW //
+Question 2 - 
+a. True //n^2 always has a lower order of growth compared to n^3
+b. False //they have the same order of growth
+c. False // n^2 is not in the same order of growth as n^3
+d. True // n is within the order of growth of n^2
+Question 5 - 
+cbrt(n) ,ln^2(n), 5log(n+100)^10, 0.001n^4, 3n^3+1, (n-2)!, 3^n, 2^(2n)

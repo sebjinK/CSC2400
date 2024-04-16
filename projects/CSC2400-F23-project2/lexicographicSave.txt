@@ -1,0 +1,137 @@
+void lexicographic(string* countriesArray, int arrSize, Tour* tourOptions, GraphMatrix* matrixOfCosts)
+{
+	string * tempCountryCodesArray = new string[arrSize];
+	for (int i = 0; i < arrSize; i++)
+	{
+		tempCountryCodesArray[i] = countriesArray[i];
+		cout << endl << tempCountryCodesArray[i];
+	}
+	tempCountryCodesArray = countriesArray;
+
+	bool isDone = false;
+	int iterationCount = 1;
+	int lowBound = 0;
+	int uppBound = 0;
+
+	string tempCountryCode;
+	string * swapArray = new string[arrSize];
+
+	Tour singleTour;
+
+	while (!isDone)
+	{
+		cout << endl << iterationCount << ": ";
+
+
+		printStringArray(tempCountryCodesArray, arrSize);
+		cout << "\b";
+
+		saveTour(singleTour, tempCountryCodesArray, matrixOfCosts);
+		tourOptions[iterationCount - 1] = singleTour;
+
+		iterationCount++;
+		isDone = true;
+
+		int tourCost = 0;
+		cout << endl;
+		for(int i = 0; i < arrSize - 1; i++)
+		{
+			cout << " " << tempCountryCodesArray[i]; 
+			if(tempCountryCodesArray[i] < tempCountryCodesArray[i + 1])
+			{
+				isDone = false;
+				lowBound = i;
+			}
+		}
+		if (isDone)
+		{
+			continue;
+		}
+		for (int j = arrSize - 1; j > 0; j--)
+		{
+			if (tempCountryCodesArray[j] > tempCountryCodesArray[lowBound])
+			{
+				uppBound = j;
+				break;
+			}
+		}
+
+		tempCountryCode = tempCountryCodesArray[lowBound];
+		tempCountryCodesArray[lowBound] = tempCountryCodesArray[uppBound];
+		tempCountryCodesArray[uppBound] = tempCountryCode;
+
+		swapArray = tempCountryCodesArray;
+		for (int i = 1; i < arrSize - lowBound; i++)
+			swapArray[lowBound + i] = tempCountryCodesArray[arrSize - 1];
+
+
+		for (int i = 1; i < arrSize - lowBound; i++)
+			tempCountryCodesArray[lowBound + i] = tempCountryCodesArray[arrSize - 1];
+	}
+
+}
+
+
+void lexicographic(string* countriesArray, int arrSize, Tour* tourOptions, GraphMatrix* matrixOfCosts)
+{
+	bool isDone = false;
+	int iterationCount = 1;
+	int lowBound = 0;
+	int uppBound = 0;
+
+	string tempCountryCode;
+	string * swapArray = new string[arrSize];
+
+	Tour singleTour;
+
+	while (!isDone)
+	{
+		cout << endl << iterationCount << ": ";
+
+
+		printStringArray(countriesArray, arrSize);
+		cout << "\b";
+
+		saveTour(singleTour, countriesArray, matrixOfCosts);
+		tourOptions[iterationCount - 1] = singleTour;
+
+		iterationCount++;
+		isDone = true;
+
+		int tourCost = 0;
+		cout << endl;
+		for(int i = 0; i < arrSize - 1; i++)
+		{
+			if(countriesArray[i] < countriesArray[i + 1])
+			{
+				isDone = false;
+				lowBound = i;
+			}
+		}
+		if (isDone)
+		{
+			continue;
+		}
+		for (int j = arrSize - 1; j > 0; j--)
+		{
+			if (countriesArray[j] > countriesArray[lowBound])
+			{
+				uppBound = j;
+				break;
+			}
+		}
+
+		tempCountryCode = countriesArray[lowBound];
+		countriesArray[lowBound] = countriesArray[uppBound];
+		countriesArray[uppBound] = tempCountryCode;
+
+		swapArray = countriesArray;
+		for (int i = 1; i < arrSize - lowBound; i++)
+			swapArray[lowBound + i] = countriesArray[arrSize - 1];
+
+
+		for (int i = 1; i < arrSize - lowBound; i++)
+			countriesArray[lowBound + i] = countriesArray[arrSize - 1];
+	}
+
+}

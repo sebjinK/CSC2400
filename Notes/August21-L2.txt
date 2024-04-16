@@ -1,0 +1,87 @@
+Algorithims - 
+A sequence of unambigous instrucitons for solving a problem, 
+i.e.m for obtaining a required output for any legititmate input in a finite amount of time
+
+
+
+common Divisor - 
+Let a, b, d sum = , such that a and b are not both 0 and d != 0. 
+The integer d is a common divisior of a and b if d/a and d/b.
+
+Greatest Common Divisor - 
+
+Primes - 
+An integer >= 2 whoe only positive divsioins are 1 and the prim number
+
+Theorem 
+Every integer n >= 2 is either prime or can be expressed as a product of (no necessarily distinct) primes, that is,
+n = p1, p2, ......., px, where p1, p2, px are all primes. This factorization is unique
+ex - 
+gcd(120 ,36) =  4
+gcd(60, 24) = 12
+gcd(75, 15) = 15
+gcd(13, 0) = 13
+gcd(0, 0) undefined
+gcd(-13, 0) = -13
+
+Goal - 
+Break down each number to its divisors
+and find their GCDs
+
+Ways to do it - 
+Linked List + Sorting from low to high
+
+
+Euclid's Algorithims
+gcd(m, 0) = m for m > 0, m 
+
+- it is  on applying repeatedly the equality gcd(m, n) = gcd( n, m modulo(mod) n), 
+where m mod n is the remainder of the division of m until m mod n is equal to 0.
+gcd(m, n) = gcd (n, (m % n))
+gcd(60, 24) = gcd (24, (60 % 24 = ) 12)
+gcd(24, 12) = gcd (12, (24 % 12 = ) 0)
+gcd(12, 0) = 12
+
+Euclid's Algorithim for computing gcd(m, n)
+1 - If n = 0, return m as the answer and stop;
+    otherwise, proceed to step 2
+2 - Divide m by n and assign the value of the reaminder to reaminder to r 
+3 - Assign the value of n to m and value of r to n. Repeat step 1
+m = a;
+n = b;
+
+if (n = 0)
+    return m;
+else 
+{
+    do
+    {
+        int remainder = m % n;
+        m = n;
+        n = remainder;
+    }while (n != 0)
+}
+
+Consecutive integer checking Algorithim for computing gcd (m, n)
+Step 1 - Assign the vlaue of min {n, m} to t 
+Step 2 - Divide m by t. If the remainder of this division is 0, go to step 3;
+        otherwise go to step 4.
+Step 3 - Divide n by t. If the remainder is 0, return the value of t as the answer and break;
+        otherwise go to step 4
+Step 4 - Decrease the value of t by 1.  Repeat Step 1.
+m = a;
+n = b; 
+t = min(m, n);
+
+
+Middle school procedure for computing fcd (m, n)
+1 - find prime factors of m                                 (we don't know how to do that)
+2 - find prime fators of n 
+3 - Identify all common factors in both factorizations 
+4 - multiply the common factors together and return the as the GCD
+
+
+Divisibilty
+For integers a and b with a != 0, we say that a divides b if b = a * c for some integer c. 
+If a divides b, then we indicate this by writing a/b.
+
